@@ -1,0 +1,10 @@
+{
+  "appId": "filmes.com.app",
+  "appName": "Filmes",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false
+    }
+  }
+}

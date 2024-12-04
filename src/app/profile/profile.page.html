@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Completo</title>
+    <style>
+        /* Reset de margens e padding para garantir que o layout ocupe a tela inteira */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilo geral da página */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f0f0f0;
+            position: relative;
+        }
+
+        /* Estilo da seta de voltar */
+        .back-arrow {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 20px;
+            color: #333;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .back-arrow:hover {
+            color: #0724fe;
+        }
+
+        /* Contêiner de login */
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            height: 800px;
+        }
+
+        /* Estilo para o título */
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Estilo dos rótulos e campos do formulário */
+        .login-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Estilo do botão */
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #1a05ff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #3725c1ca;
+        }
+
+        /* Links do formulário */
+        .login-container .links {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+        }
+
+        .login-container .links a {
+            color: #0e05f8;
+            text-decoration: none;
+        }
+
+        .login-container .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Link da seta de voltar -->
+    <a href="/conta" class="back-arrow">&#8592; Voltar</a>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form (submit)="login(username.value, password.value)">
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" #username required>
+        
+            <label for="password">Senha:</label>
+            <input type="password" id="password" #password required maxlength="6">
+        
+            <!-- Mensagem de aviso se a senha for maior que 6 caracteres -->
+            <p *ngIf="password.value && password.value.length > 6" style="color: red; font-size: 12px;">
+                A senha deve ter no máximo 6 caracteres.
+            </p>
+        
+            <button type="submit" [disabled]="loading">Entrar</button>
+        
+            <!-- Exibição de mensagem de erro -->
+            <p *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>
+        
+            <!-- Links de ação -->
+            <div class="links">
+                <a href="/criar">Esqueceu a senha?</a>
+                <a href="/conta">Criar uma conta</a>
+            </div>
+        </form>
+        
+    </div>
+
+
+</body>
+</html>

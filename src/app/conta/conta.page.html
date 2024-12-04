@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criação de Conta</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            height: 800px;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .input-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .input-group button:hover {
+            background-color: #007bff;
+        }
+
+        .link {
+            color: #007bff;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        p {
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <ion-content> 
+        <div class="container"> 
+        <h2>Criar Conta</h2>
+        <form (ngSubmit)="onRegister(form)" #form="ngForm"> 
+            <!-- Campo Nome --> 
+        <div class="input-group">
+        <label for="name">Nome Completo:</label> 
+        <ion-input type="text" id="name" [(ngModel)]="name" name="name" required></ion-input> 
+    </div> 
+    
+    <!-- Campo E-mail --> 
+<div class="input-group"> 
+<label for="email">E-mail:</label> 
+<ion-input type="email" id="email" [(ngModel)]="email" name="email" required></ion-input> 
+</div> 
+<!-- Campo Senha --> 
+<div class="input-group"> 
+<label for="password">Senha:</label> 
+<ion-input type="password" id="password" [(ngModel)]="password" name="password" required></ion-input> 
+</div> 
+<!-- Campo Confirmar Senha --> 
+<div class="input-group"> 
+<label for="confirmPassword">Confirmar Senha:</label> 
+<ion-input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required></ion-input> 
+</div> 
+<!-- Botão de Criação de Conta --> 
+ <div class="input-group"> <ion-button expand="full" type="submit">Criar Conta</ion-button> 
+</div> 
+</form>
+
+ <p>Já tem uma conta? <a routerLink="/profile" class="link"> <a href="/profile">Fazer Login</a></a></p> 
+</div> 
+</ion-content>
+
+</body>
+</html>
+
+

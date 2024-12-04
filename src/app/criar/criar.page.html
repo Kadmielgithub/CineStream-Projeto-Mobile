@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esqueceu a Senha</title>
+    <style>
+        /* Estilos básicos para deixar o layout bonito */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            height: 800px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            font-size: 16px;
+            color: #555;
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        .input-group button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .input-group button:hover {
+            background-color: #007bff;
+        }
+
+        .link {
+            display: block;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #1a2d42;
+            text-decoration: none;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Recuperação de Senha</h2>
+        <form id="recoverForm">
+            <div class="input-group">
+                <label for="email">Digite seu e-mail:</label>
+                <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+            </div>
+            <div class="input-group">
+                <button type="submit">Enviar E-mail de Recuperação</button>
+            </div>
+            <p><a href="/profile" class="link">Voltar ao Login</a></p>
+        </form>
+        <div class="error-message" id="errorMessage" style="display: none;">E-mail inválido, tente novamente.</div>
+    </div>
+
+    <script>
+        // Função para simular a recuperação de senha e validar o e-mail
+        document.getElementById("recoverForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var email = document.getElementById("email").value;
+
+            if (email === "") {
+                document.getElementById("errorMessage").textContent = "Por favor, insira um e-mail.";
+                document.getElementById("errorMessage").style.display = "block";
+            } else if (!validateEmail(email)) {
+                document.getElementById("errorMessage").textContent = "E-mail inválido, tente novamente.";
+                document.getElementById("errorMessage").style.display = "block";
+            } else {
+                document.getElementById("errorMessage").style.display = "none";
+                alert("E-mail de recuperação enviado!");
+                // Aqui você pode redirecionar ou realizar outra ação após o envio.
+            }
+        });
+
+        // Função para validar o formato de e-mail
+        function validateEmail(email) {
+            var re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            return re.test(email);
+        }
+    </script>
+
+</body>
+</html>
+
+
